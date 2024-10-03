@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucin Full Animasi</title>
+    <style>
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(to top right, #ff7eb3, #ff758f);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            color: white;
+            text-align: center;
+            /* overflow-y: hidden; */ /* Ini dihapus */
+        }
+
+
+        .container {
+            margin: 50px 20px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 126, 126, 0.7); /* Background merah dengan transparansi */
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+        h2 {
+            font-size: 2em;
+            margin: 10px 0 0 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+        .heart-icons {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 15px;
+            animation: float 3s ease-in-out infinite alternate;
+        }
+
+        /* Animasi untuk teks glowing */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff5e78, 0 0 20px #ff5e78, 0 0 30px #ff5e78;
+            }
+            to {
+                text-shadow: 0 0 20px #ffacd2, 0 0 30px #ffacd2, 0 0 40px #ffacd2;
+            }
+        }
+
+        /* Animasi untuk teks melayang */
+        @keyframes float {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-20px);
+            }
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff5e78;
+            transform: rotate(45deg);
+            animation: fall linear infinite;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff5e78;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(45deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(100vh) rotate(45deg);
+            }
+        }
+
+        /* CSS untuk foto */
+        .photo-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Membiarkan foto melipat ke baris berikutnya */
+            width: 90%; /* Ubah lebar wadah foto */
+        }
+
+        .photo-container img {
+            width: calc(20% - 10px); /* Lima foto dalam satu baris dengan jarak */
+            height: auto; /* Biarkan tinggi otomatis untuk menjaga rasio aspek */
+            border-radius: 10px;
+            object-fit: cover;
+            border: 4px solid white;
+            margin: 5px; /* Jarak antar foto */
+        }
+
+        /* CSS untuk menu selanjutnya */
+        .menu-container {
+            position: relative;
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Transparansi */
+            backdrop-filter: blur(10px); /* Blur latar belakang */
+            border-radius: 10px;
+            margin-top: 20px;
+            z-index: 1; /* Mengangkat menu di atas latar belakang */
+        }
+
+        .menu-container h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .menu-container button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff5e78;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-container button:hover {
+            background-color: #ff758f; /* Efek hover */
+        }
+
+        .flower-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('flower.png') no-repeat center center;
+            background-size: cover;
+            opacity: 0.5; /* Mengatur transparansi bunga */
+            z-index: -1; /* Menempatkan bunga di belakang foto */
+        }
+
+             /* Gaya untuk menu selanjutnya */
+             @keyframes rise {
+            0% {
+                bottom: 0;
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+            }
+        }
+
+        .menu-container {
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in; /* Animasi muncul */
+        }
+
+        .menu-container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff5e78;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-container button:hover {
+            background-color: #ff758f; /* Efek hover */
+        }
+
+        /* Animasi untuk menu */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lyrics {
+            margin: 20px;
+            font-size: 1.2em;
+            color: #333;
+            white-space: pre-wrap;
+        }
+        .line {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ILOVEEE YOUU MOREEEEE</h1>
+        <h2>NABILAA SALSAABILAA</h2>
+        <div class="heart-icons">
+            ❤️❤️❤️❤️❤️❤️
+        </div>
+    </div>
+    <!-- Tambahkan wadah foto -->
+    <div class="photo-container">
+        <div class="flower-background"></div> 
+        <img src="foto1.jpeg" alt="Foto Bucin 1">
+        <img src="foto2.jpeg" alt="Foto Bucin 2">
+        <img src="foto3.jpeg" alt="Foto Bucin 3">
+        <img src="foto4.jpeg" alt="Foto Bucin 4">
+        <img src="foto5.jpeg" alt="Foto Bucin 5">
+        <img src="foto6.jpeg" alt="Foto Bucin 5">
+
+    </div>
+
+    
+
+    <!-- Pemutar lagu -->
+    <audio id="love-song" autoplay loop>
+        <source src="love-song.mp3" type="audio/mpeg">
+    </audio>
+
+
+     <!-- Bagian Lirik -->
+     <div class="lyrics">
+        <p class="line" id="line1">'Cause nobody knows you, baby, the way I do</p>
+        <p class="line" id="line2">And nobody loves you, baby, the way I do</p>
+        <p class="line" id="line3">It's been so long, it's been so long, maybe you were fireproof</p>
+        <p class="line" id="line4">'Cause nobody saves me, baby, the way you do</p>
+    </div>
+
+    <div class="menu-container">
+        <button id="nextButton" onclick="showPhotos()">Letssgooo!!</button>
+    </div>
+
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // Kecepatan animasi
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000); // Hapus hati setelah 5 detik
+        }
+
+        function showPhotos() {
+            const photoContainer = document.getElementById('photoContainer');
+            photoContainer.style.opacity = 1; // Tampilkan foto saat tombol diklik
+            document.getElementById('nextButton').style.display = 'none'; // Sembunyikan tombol setelah diklik
+        }
+
+        function showLyrics() {
+            // Menampilkan lirik dengan jeda waktu
+            document.getElementById('line1').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('line2').style.display = 'block';
+            }, 4000); // Tampilkan baris 2 setelah 4 detik
+            setTimeout(() => {
+                document.getElementById('line3').style.display = 'block';
+            }, 8000); // Tampilkan baris 3 setelah 8 detik
+            setTimeout(() => {
+                document.getElementById('line4').style.display = 'block';
+            }, 12000); // Tampilkan baris 4 setelah 12 detik
+        }
+
+        setInterval(createHeart, 300); // Setiap 300ms buat hati baru
+
+        document.getElementById('love-song').addEventListener('loadeddata', showLyrics);
+    </script>
+
+</body>
+</html>
